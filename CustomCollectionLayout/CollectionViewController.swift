@@ -13,6 +13,13 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let contentCellIdentifier = "ContentCellIdentifier"
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var numberOfSections = 50
+    
+    @IBAction func didClick(sender: AnyObject) {
+        numberOfSections -= 1;
+        let set = NSIndexSet(index: 2)
+        self.collectionView.deleteSections(set)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +32,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK - UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 50
+        return numberOfSections
     }
     
     

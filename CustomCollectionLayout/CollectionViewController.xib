@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B17c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectionViewController" customModule="CustomCollectionLayout" customModuleProvider="target">
@@ -17,6 +18,7 @@
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IGm-uP-jnG">
                     <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewLayout key="collectionViewLayout" id="FQE-rR-b0n" customClass="CustomCollectionViewLayout" customModule="CustomCollectionLayout" customModuleProvider="target"/>
                     <connections>
@@ -26,16 +28,24 @@
                 </collectionView>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUY-nV-0BO">
                     <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="barTintColor" red="0.55294117649999996" green="0.85490196080000003" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <textAttributes key="titleTextAttributes">
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </textAttributes>
                     <items>
-                        <navigationItem title="Custom Collection Layout | Brightec" id="6rm-jF-nzk"/>
+                        <navigationItem title="Custom Collection Layout | Brightec" id="6rm-jF-nzk">
+                            <barButtonItem key="rightBarButtonItem" title="Delete" id="SdM-3E-Nc6">
+                                <connections>
+                                    <action selector="didClick:" destination="-1" id="ElF-XA-5kk"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
                     </items>
                 </navigationBar>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="0.49658589853003732" green="0.86006560773480667" blue="0.15115732096539047" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="rUY-nV-0BO" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JUy-eT-jK3"/>
@@ -50,9 +60,4 @@
             <point key="canvasLocation" x="296" y="376"/>
         </view>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

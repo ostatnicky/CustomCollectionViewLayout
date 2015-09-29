@@ -16,9 +16,13 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     var numberOfSections = 50
     
     @IBAction func didClick(sender: AnyObject) {
+        
         numberOfSections -= 1;
         let set = NSIndexSet(index: 2)
         self.collectionView.deleteSections(set)
+        
+        let layout = self.collectionView.collectionViewLayout as! CustomCollectionViewLayout
+        layout.reload()
     }
     
     override func viewDidLoad() {

@@ -21,8 +21,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         let set = NSIndexSet(index: 2)
         self.collectionView.deleteSections(set)
         
-        let layout = self.collectionView.collectionViewLayout as! CustomCollectionViewLayout
-        layout.reload()
     }
     
     override func viewDidLoad() {
@@ -36,6 +34,8 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     // MARK - UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        let layout = self.collectionView.collectionViewLayout as! CustomCollectionViewLayout
+        layout.invalidateLayout()
         return numberOfSections
     }
     

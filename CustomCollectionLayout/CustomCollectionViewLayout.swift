@@ -15,13 +15,12 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
     var itemsSize : NSMutableArray!
     var contentSize : CGSize!
     
-    func reload() {
-        itemAttributes = nil
-        itemsSize = nil
-        prepareLayout()
-    }
     
     override func prepareLayout() {
+        
+        itemAttributes = nil
+        itemsSize = nil
+        
         if self.collectionView?.numberOfSections() == 0 {
             return
         }
@@ -34,7 +33,7 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
                         continue
                     }
                     
-                    let attributes : UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))
+                    let attributes : UICollectionViewLayoutAttributes = self.layoutAttributesForItemAtIndexPath(NSIndexPath(forItem: index, inSection: section))!
                     if section == 0 {
                         var frame = attributes.frame
                         frame.origin.y = self.collectionView!.contentOffset.y
@@ -117,8 +116,8 @@ class CustomCollectionViewLayout: UICollectionViewLayout {
         return self.contentSize
     }
     
-    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes! {
-        return self.itemAttributes[indexPath.section][indexPath.row] as! UICollectionViewLayoutAttributes
+    override func layoutAttributesForItemAtIndexPath(indexPath: NSIndexPath) -> UICollectionViewLayoutAttributes? {
+        return self.itemAttributes[indexPath.section][indexPath.row] as? UICollectionViewLayoutAttributes
     }
     
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
